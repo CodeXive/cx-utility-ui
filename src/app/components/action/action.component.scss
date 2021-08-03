@@ -1,0 +1,207 @@
+.btn {
+    border-radius: unset !important;
+}
+
+.key {
+    font-weight: bold;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.left_top {
+    animation-duration: 1s;
+    animation-name: slideLeft;
+}
+
+.left_top_out {
+    animation-duration: 1s;
+    animation-name: slideLeftOut;
+}
+
+.left_middle {
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    animation-duration: 1s;
+    animation-name: slideLeft;
+}
+
+.left_middle {
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    animation-duration: 1s;
+    animation-name: slideLeftOut;
+}
+
+.left_bottom {
+    position: absolute;
+    bottom: 0;
+    animation-duration: 1s;
+    animation-name: slideLeft;
+}
+
+.left_bottom {
+    position: absolute;
+    bottom: 0;
+    animation-duration: 1s;
+    animation-name: slideLeftOut;
+}
+
+@keyframes slideLeftOut {
+    from {
+		margin-left:0%;
+    }
+    to {
+		margin-left:-50%;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+      margin-left:-50%;
+    }
+    to {
+      margin-left:0%;
+    }
+}
+
+.right_top {
+    position: absolute;
+    right: 0;
+    animation-duration: 1s;
+    animation-name: slideRight;
+}
+
+.right_top_out {
+    position: absolute;
+    right: 0;
+    animation-duration: 1s;
+    animation-name: slideRightOut;
+}
+
+.right_middle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+    animation-duration: 1s;
+    animation-name: slideRight;
+}
+
+.right_middle_out {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+    animation-duration: 1s;
+    animation-name: slideRightOut;
+}
+
+.right_bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation-duration: 1s;
+    animation-name: slideRight;
+}
+
+.right_bottom_out {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation-duration: 1s;
+    animation-name: slideRightOut;
+}
+
+@keyframes slideRightOut {
+    from {
+		margin-right:0%;
+    }
+    to {
+		margin-right:-50%;
+    }
+}
+
+@keyframes slideRight {
+    from {
+      margin-right:-50%;
+    }
+    to {
+      margin-right:0%;
+    }
+}
+
+.center_bottom {
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    bottom: 0;
+    animation-duration: 1s;
+    animation-name: slideBottom;
+}
+
+.center_bottom_out {
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    bottom: 0;
+    animation-duration: 1s;
+    animation-name: slideBottomOut;
+}
+
+@keyframes slideBottomOut {
+    from {
+		margin-bottom:0%;
+    }
+    to {
+		margin-bottom:-50%;
+    }
+}
+
+@keyframes slideBottom {
+    from {
+      margin-bottom:-50%;
+    }
+    to {
+      margin-bottom:0%;
+    }
+}
+
+.center_top {
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: 0;
+    animation-duration: 1s;
+    animation-name: slideTop;
+}
+
+.center_top_out {
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: 0;
+    animation-duration: 1s;
+    animation-name: slideTopOut;
+}
+
+@keyframes slideTop {
+    from {
+		margin-top:0%;
+    }
+    to {
+		margin-top:-50%;
+    }
+}
+
+@keyframes slideTop {
+    from {
+      margin-top:-50%;
+    }
+    to {
+      margin-top:0%;
+    }
+}

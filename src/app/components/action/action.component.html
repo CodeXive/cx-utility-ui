@@ -1,0 +1,6 @@
+<button [hidden]="!isVisible" class="btn"
+	[ngStyle]="{'background-color': action.backgroundColor, 'border-color': action.backgroundColor}"
+	[ngClass]="action.position.toLowerCase()">
+	<span *ngIf="action.showKey" class="key mr-2" [ngStyle]="{'color':action.keyColor}">{{action.key}}</span>
+	<span class="label" [ngStyle]="{'color':action.labelColor}">{{action.label}}</span>
+</button>

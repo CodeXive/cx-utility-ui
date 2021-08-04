@@ -7,6 +7,7 @@ import { ActionComponent } from './components/action/action.component';
 import { ProgressComponent } from './components/progress/progress.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { ToastComponent } from './components/toast/toast.component';
+import { ProgressCancelComponent } from './components/progress-cancel/progress-cancel.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ToastComponent } from './components/toast/toast.component';
     ActionComponent,
     ProgressComponent,
     NotificationComponent,
-    ToastComponent
+    ToastComponent,
+    ProgressCancelComponent
   ],
   imports: [
     BrowserModule,

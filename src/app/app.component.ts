@@ -3,6 +3,8 @@ import { ActionComponent } from './components/action/action.component';
 import { Action, ActionPosition } from './model/action.model';
 import { ToastService } from './service/toast.service';
 import { Notification } from './model/notification.model';
+import { Progress, ProgressCancel } from './model/progress.model';
+import { ProgressComponent } from './components/progress/progress.component';
 
 @Component({
 	selector: 'app-root',
@@ -22,7 +24,14 @@ export class AppComponent {
 	};
 	isActionVisible: boolean = false;
 
+	progress!: Progress;
+	isProgressVisible: boolean = false;
+
+	progressCancel!: ProgressCancel;
+	isProgressCancelVisible: boolean = false;
+
 	@ViewChild("actionComponent", { static: false }) actionComponent!: ActionComponent;
+	@ViewChild("progressComponent", { static: false }) progressComponent!: ProgressComponent;
 
 	@HostListener("window:message", ["$event"]) receivedEvent(event: MessageEvent) {
 		switch (event.data.action) {
@@ -36,8 +45,10 @@ export class AppComponent {
 				this.showNotification(event.data.data);
 				break;
 			case "ShowProgress":
+				this.showProgress(event.data.data);
 				break;
-			case "HideProgress":
+			case "CancelProgress":
+				this.cancelProgress(event.data.data);
 				break;
 			default:
 				console.log("Invalid Action");
@@ -61,10 +72,31 @@ export class AppComponent {
 	}
 
 	showNotification(data: Notification): void {
-		// if (data.empty) {
-		// 	this.toastService.toasts = [];
-		// }
+		if (data.empty) {
+			this.toastService.toasts = [];
+		}
 		this.toastService.show(data.label, { classname: data.position.toLowerCase(), delay: data.time, color: data.labelColor, backgroundColor: data.backgroundColor });
+	}
+
+	showProgress(data: Progress): void {
+		this.progress = data;
+		this.isProgressVisible = true;
+	}
+
+	hideProgress(): void {
+		this.isProgressVisible = false;
+	}
+
+	cancelProgress(data: ProgressCancel): void {
+		if (this.isProgressVisible) {
+			this.progressComponent.cancel();
+			this.isProgressVisible = false;
+		}
+		this.progressCancel = data;
+		this.isProgressCancelVisible = true;
+		setTimeout(() => {
+			this.isProgressCancelVisible = false;
+		}, data.time)
 	}
 
 }

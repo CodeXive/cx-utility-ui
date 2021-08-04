@@ -1,1 +1,6 @@
-<p>progress works!</p>
+<ngb-progressbar [value]="value" [striped]="progress.striped" [animated]="progress.animated" [showValue]="false"
+	[ngStyle]="{'width': '20%'}" [ngClass]="progress.position.toLowerCase()">
+	<span [ngStyle]="{'color':progress.labelColor}">
+		<b>{{value < 100 ? progress.label : progress.labelOnComplete}}</b>
+	</span>
+</ngb-progressbar>

@@ -1,2 +1,4 @@
 <app-action #actionComponent [isVisible]="isActionVisible" [action]="action"></app-action>
 <app-toast aria-live="polite" aria-atomic="true"></app-toast>
+<app-progress #progressComponent [progress]="progress" *ngIf="isProgressVisible" (hideEvent)="hideProgress()"></app-progress>
+<app-progress-cancel [progress]="progressCancel" *ngIf="isProgressCancelVisible"></app-progress-cancel>

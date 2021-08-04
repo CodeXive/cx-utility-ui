@@ -1,10 +1,11 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { ActionComponent } from './components/action/action.component';
+import { ProgressComponent } from './components/progress/progress.component';
 import { Action, ActionPosition } from './model/action.model';
-import { ToastService } from './service/toast.service';
 import { Notification } from './model/notification.model';
 import { Progress, ProgressCancel } from './model/progress.model';
-import { ProgressComponent } from './components/progress/progress.component';
+import { ToastService } from './service/toast.service';
+
 
 @Component({
 	selector: 'app-root',

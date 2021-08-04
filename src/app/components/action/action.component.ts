@@ -6,15 +6,12 @@ import { Action } from 'src/app/model/action.model';
 	templateUrl: './action.component.html',
 	styleUrls: ['./action.component.scss']
 })
-export class ActionComponent implements OnInit {
+export class ActionComponent {
 
 	@Input() action!: Action;
 	@Input() isVisible: boolean = false;
 
 	constructor() { }
-
-	ngOnInit(): void {
-	}
 
 	hide(): void {
 		if (this.isVisible) {

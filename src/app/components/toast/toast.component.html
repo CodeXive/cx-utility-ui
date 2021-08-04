@@ -1,0 +1,10 @@
+<div [class]="toastService.toasts.length > 0 ? toastService.toasts[toastService.toasts.length - 1].classname : ''">
+	<ngb-toast *ngFor="let toast of toastService.toasts" [autohide]="true" [delay]="toast.delay || 5000"
+		(hidden)="toastService.remove(toast)"
+		[ngStyle]="{'color': toast.color, 'background-color':toast.backgroundColor}">
+		<ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+			<ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+		</ng-template>
+		<ng-template #text>{{ toast.textOrTpl }}</ng-template>
+	</ngb-toast>
+</div>

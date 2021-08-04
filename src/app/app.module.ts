@@ -6,13 +6,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ActionComponent } from './components/action/action.component';
 import { ProgressComponent } from './components/progress/progress.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActionComponent,
     ProgressComponent,
-    NotificationComponent
+    NotificationComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,

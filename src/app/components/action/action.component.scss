@@ -28,7 +28,7 @@
     animation-name: slideLeft;
 }
 
-.left_middle {
+.left_middle_out {
     position: absolute;
     top: 50%;
     transform: translate(0,-50%);
@@ -43,7 +43,7 @@
     animation-name: slideLeft;
 }
 
-.left_bottom {
+.left_bottom_out {
     position: absolute;
     bottom: 0;
     animation-duration: 1s;

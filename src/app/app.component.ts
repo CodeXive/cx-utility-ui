@@ -1,6 +1,8 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { ActionComponent } from './components/action/action.component';
 import { Action, ActionPosition } from './model/action.model';
+import { ToastService } from './service/toast.service';
+import { Notification } from './model/notification.model';
 
 @Component({
 	selector: 'app-root',
@@ -22,7 +24,6 @@ export class AppComponent {
 
 	@ViewChild("actionComponent", { static: false }) actionComponent!: ActionComponent;
 
-
 	@HostListener("window:message", ["$event"]) receivedEvent(event: MessageEvent) {
 		switch (event.data.action) {
 			case "ShowAction":
@@ -32,6 +33,7 @@ export class AppComponent {
 				this.hideAction();
 				break;
 			case "ShowNotification":
+				this.showNotification(event.data.data);
 				break;
 			case "ShowProgress":
 				break;
@@ -42,6 +44,8 @@ export class AppComponent {
 				break;
 		}
 	}
+
+	constructor(private toastService: ToastService) { }
 
 	showAction(data: Action): void {
 		this.action = data;
@@ -54,8 +58,13 @@ export class AppComponent {
 		setTimeout(() => {
 			this.isActionVisible = false;
 		}, 1000);
+	}
 
-
+	showNotification(data: Notification): void {
+		// if (data.empty) {
+		// 	this.toastService.toasts = [];
+		// }
+		this.toastService.show(data.label, { classname: data.position.toLowerCase(), delay: data.time, color: data.labelColor, backgroundColor: data.backgroundColor });
 	}
 
 }

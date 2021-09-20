@@ -60,6 +60,10 @@ export class AppComponent {
 	constructor(private toastService: ToastService) { }
 
 	showAction(data: Action): void {
+		if(this.isActionVisible) {
+			this.actionComponent.hide();
+			this.isActionVisible = false;
+		}
 		this.action = data;
 		this.isActionVisible = true;
 	}

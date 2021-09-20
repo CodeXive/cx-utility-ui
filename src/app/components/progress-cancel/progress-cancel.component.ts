@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ProgressCancel } from 'src/app/model/progress.model';
 
 @Component({
@@ -6,13 +6,14 @@ import { ProgressCancel } from 'src/app/model/progress.model';
 	templateUrl: './progress-cancel.component.html',
 	styleUrls: ['./progress-cancel.component.scss']
 })
-export class ProgressCancelComponent implements OnInit {
+export class ProgressCancelComponent implements AfterViewInit {
 
 	@Input() progress!: ProgressCancel;
 
 	constructor() { }
-
-	ngOnInit(): void {
+	ngAfterViewInit(): void {
+		const bg: HTMLElement = <HTMLElement>document.getElementsByClassName("progress-bar")[0];
+		bg.style.backgroundColor = this.progress.fillColor;
 	}
 
 }

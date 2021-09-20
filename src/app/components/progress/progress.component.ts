@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Progress } from 'src/app/model/progress.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Progress } from 'src/app/model/progress.model';
 	templateUrl: './progress.component.html',
 	styleUrls: ['./progress.component.scss']
 })
-export class ProgressComponent implements OnInit {
+export class ProgressComponent implements AfterViewInit {
 
 	interval: any;
 	value: number = 0;
@@ -16,14 +16,17 @@ export class ProgressComponent implements OnInit {
 
 	constructor() { }
 
-	ngOnInit(): void {
+	ngAfterViewInit(): void {
 		if (this.progress != undefined) {
 			this.value = 0;
+			const bg: HTMLElement = <HTMLElement>document.getElementsByClassName("progress-bar")[0];
+			bg.style.backgroundColor = this.progress.fillColor;
+			const bg2: HTMLElement = <HTMLElement>document.getElementsByClassName("progress")[0];
+			bg2.style.backgroundColor = this.progress.backgroundColor;
 			const increment: number = 100 / (this.progress.time / 100);
 			this.interval = setInterval(() => {
 				if (this.progress.time > 0) {
-					const bg: HTMLElement = <HTMLElement>document.getElementsByClassName("progress-bar")[0];
-					bg.style.backgroundColor = this.progress.backgroundColor;
+
 					this.progress.time = this.progress.time - 100;
 					this.value = this.value + increment;
 				} else {
@@ -40,7 +43,5 @@ export class ProgressComponent implements OnInit {
 	cancel(): void {
 		clearInterval(this.interval);
 	}
-
-
 
 }

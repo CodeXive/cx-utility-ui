@@ -2,6 +2,7 @@ export type Progress = {
 	label: string,
 	labelColor: string,
 	labelOnComplete: string,
+	fillColor: string,
 	backgroundColor: string,
 	striped: boolean,
 	animated: boolean,
@@ -12,7 +13,7 @@ export type Progress = {
 export type ProgressCancel = {
 	label: string,
 	labelColor: string,
-	backgroundColor: string,
+	fillColor: string,
 	striped: boolean,
 	position: string,
 	time: number

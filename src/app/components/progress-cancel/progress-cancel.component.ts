@@ -13,7 +13,7 @@ export class ProgressCancelComponent implements AfterViewInit {
 	constructor() { }
 	ngAfterViewInit(): void {
 		const bg: HTMLElement = <HTMLElement>document.getElementsByClassName("progress-bar")[0];
-		bg.style.backgroundColor = this.progress.fillColor;
+		bg.style.backgroundColor = this.progress.backgroundColor;
 	}
 
 }

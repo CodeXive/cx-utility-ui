@@ -188,6 +188,10 @@
     animation-name: slideTopOut;
 }
 
+.btn {
+	text-align: left !important;
+}
+
 @keyframes slideTop {
     from {
 		margin-top:0%;
